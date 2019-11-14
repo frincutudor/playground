@@ -24,3 +24,13 @@
 
 1. Open PowerShell as an administrator. If you already have it opened then you can ignore this step.
 2. Execute below command to start minikube:  `minikube start --vm-driver hyperv --hyperv-virtual-switch "Minikube" --v=7 --alsologtostderr`
+
+### Automatic configuration - WIP
+
+This setup can be ran automatically using the `/kubernetes-cluster/setup.sh` script. 
+
+IMPORTANT: It needs to be ran from Windows PowerShell with admin rights!!
+
+1. Run `Get-NetAdapter`. This will return all the available netadapters
+2. After choosing a net adapter (ex. Ethernet, Wi-Fi) the run the following command: 
+`New-VMSwitch -name  <name-of-switch> -NetAdapterName <name-of-net-adapter> -AllowManagementOS $true`
